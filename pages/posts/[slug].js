@@ -32,10 +32,10 @@ export function getStaticProps(context) {
 export function getStaticPaths() {
   const postFilenames = getPostsFiles();
 
-  const slugs = postFilenames.map((fileName) => fileName.replace(/\.md$/, ""));
+  const slugs = postFilenames.map((fileName) => fileName.replace(/\.md$/, "")); //removes the extension
 
   return {
-    paths: slugs.map((slug) => ({ params: { slug: slug } })),
+    paths: slugs.map((slug) => ({ params: { slug: slug } })), //to make the URL dynamic.
     fallback: false,
   };
 }
